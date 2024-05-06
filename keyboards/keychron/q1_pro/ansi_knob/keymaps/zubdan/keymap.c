@@ -95,10 +95,17 @@ enum combos {
   FN_U_UMLAUT,
   FN_A_UMLAUT_UPPER,
   FN_A_UMLAUT,
+
   JK_ESC,
   DF_ENTER,
   KL_BKSP,
   SD_TAB,
+
+  ZX_BACK,
+  XC_CUT,
+  CV_COPY,
+  VB_PASTE,
+  VBC_SHIFT_PASTE,
 };
 
 const uint16_t PROGMEM oif[] = {KC_I, KC_F, KC_O, COMBO_END};
@@ -118,7 +125,7 @@ const uint16_t PROGMEM zx[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM xc[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM cv[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM vb[] = {KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM vbc[] = {KC_V, KC_B, KC,C, COMBO_END};
+const uint16_t PROGMEM vbc[] = {KC_V, KC_B, KC_C, COMBO_END};
 
 combo_t key_combos[] = {
   [FN_O_UMLAUT_UPPER] = COMBO(oif, UC(0x00D6)),
@@ -133,11 +140,11 @@ combo_t key_combos[] = {
   [DF_ENTER] = COMBO(df, KC_ENT),
   [SD_TAB] = COMBO(sd, KC_TAB),
 
-  [ZX_BACK] = COMBO(df, C(KC_Z)),
-  [XC_CUT] = COMBO(df, C(KC_X)),
-  [CV_COPY] = COMBO(df, C(KC_C)),
-  [VB_PASTE] = COMBO(df, C(KC_V)),
-  [VBC_SHIFT_PASTE] = COMBO(df, S(C(KC_V))),
+  [ZX_BACK] = COMBO(zx, C(KC_Z)),
+  [XC_CUT] = COMBO(xc, C(KC_X)),
+  [CV_COPY] = COMBO(cv, C(KC_C)),
+  [VB_PASTE] = COMBO(vb, C(KC_V)),
+  [VBC_SHIFT_PASTE] = COMBO(vbc, S(C(KC_V))),
 };
 
 //COMB(FN_O_UMLAUT_UPPER,     UC(0x00D6),     KC_I, KC_F, KC_O)
@@ -157,4 +164,4 @@ combo_t key_combos[] = {
 //COMB(XC_CUT,                C(KC_X),        KC_X, KC_C)
 //COMB(CV_COPY,               C(KC_C),        KC_C, KC_V)
 //COMB(VB_PASTE,              C(KC_V),        KC_V, KC_B)
-//COMB(VBC_SHIFT_PASTE,              S(C(KC_V)),     KC_V, KC_B, KC,C)
+//COMB(VBC_SHIFT_PASTE,              S(C(KC_V)),     KC_V, KC_B, KC_C)
